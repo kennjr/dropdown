@@ -3,13 +3,16 @@ package com.ramanie.threeddrodown
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.ramanie.threeddrodown.ui.theme.ThreeDdrodownTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,25 +22,14 @@ class MainActivity : ComponentActivity() {
             ThreeDdrodownTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    Greeting("Android")
+                    DropDown(text = "Drop down", modifier = Modifier.padding(15.dp) ) {
+                        Text(text = "The open menu", modifier = Modifier.fillMaxWidth().fillMaxHeight(0.3f).background(
+                            Color.Gray))
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ThreeDdrodownTheme {
-        Greeting("Android")
     }
 }
